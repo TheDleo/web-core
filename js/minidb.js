@@ -157,10 +157,4 @@
         session: session,
         local: local
     };
-})(document, window);/**
- * Created with JetBrains PhpStorm.
- * User: jasonsykes
- * Date: 12/3/12
- * Time: 3:00 PM
- * To change this template use File | Settings | File Templates.
- */
+})(document, window);

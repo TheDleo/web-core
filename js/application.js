@@ -10,6 +10,8 @@ DF.Application = function (config) {
     this.config = config;
     this.actions = Actions;
     this.actions.doLayout();
+    this.currentState = "";
+    this.currentData = "";
 };
 
 
