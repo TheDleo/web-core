@@ -12,6 +12,7 @@ DF.Application = function (config) {
     this.actions.doLayout();
     this.currentState = "";
     this.currentData = "";
+    this.templates = new Templates();
 };
 
 
