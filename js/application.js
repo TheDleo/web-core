@@ -7,7 +7,7 @@ DF.Application = function (config) {
     this.currentData = "";
     this.templates = new Templates();
     this.utils = {
-       //common utils
+
     };
 };
 
