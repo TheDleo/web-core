@@ -32,13 +32,40 @@ Templates = function () {
         '</tr>' +
         '</thead>' +
         '<tbody>' +
-        '{{#record.fields}}' +
+        '{{#record}}' +
         '<tr>' +
-        '<td>{{label}}</td>' +
+        '<td>{{fields.label}}</td>' +
         '</tr> ' +
-        '{{/record.fields}}' +
+        '{{/record}}' +
         '</tbody>' +
         '</table>';
+    this.dropDownTemplate = '<div class="btn-group">' +
+        '<a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">' +
+        'Applications' +
+        '<span class="caret"></span>' +
+    '</a>' +
+        '<ul class="dropdown-menu">' +
+        '{{#record}}' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{fields.name}}\',\'{{fields.url}}\')">{{fields.label}}</a></li>' +
+        '{{/record}}' +
+    '</ul>' +
+        '</div>';
+    this.navBarDropDownTemplate = '<ul class="nav">' +
+        '<li class="dropdown">' +
+        '<a data-target="#" href="#" class="dropdown-toggle" data-toggle="dropdown">' +
+        'Applications' +
+           ' <b class="caret"></b>' +
+        '</a>' +
+        '<ul class="dropdown-menu">' +
+        '{{#record}}' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{fields.name}}\',\'{{fields.url}}\')">{{fields.label}}</a></li>' +
+        '{{/record}}' +
+    '</ul>' +
+    '</li>' +
+    '</ul>';
+    this.userInfoTemplate = '<div class="btn-group"><a id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
+        '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
+        '<a id="dfSignOutLink" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>';
     this.loadTemplate = function (template, data, renderTo) {
         var processTpl;
         processTpl = Mustache.to_html(template, data);
