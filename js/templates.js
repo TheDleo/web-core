@@ -57,9 +57,9 @@ Templates = function () {
            ' <b class="caret"></b>' +
         '</a>' +
         '<ul class="dropdown-menu">' +
-        '{{#record}}' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{fields.name}}\',\'{{fields.url}}\')">{{fields.label}}</a></li>' +
-        '{{/record}}' +
+        '{{#Applications}}' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
+        '{{/Applications}}' +
     '</ul>' +
     '</li>' +
     '</ul>';
@@ -69,7 +69,7 @@ Templates = function () {
     this.loadTemplate = function (template, data, renderTo) {
         var processTpl;
         processTpl = Mustache.to_html(template, data);
-        document.getElementById(renderTo).innerHTML = processTpl;
+        $('#' + renderTo).html(processTpl);
 
     }
 };
