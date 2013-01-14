@@ -66,8 +66,8 @@ Templates = function () {
     this.userInfoTemplate = '<div class="btn-group"><a id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
         '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
         '<a id="dfSignOutLink" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>';
-    this.appIconTemplate = '{{#Applications}}' +
-        '<div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
+    this.appIconTemplate = '<table id="db-tables" class="table table-bordered table-striped">' +'{{#Applications}}' +
+        '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
         '<span class=" well warning pull-left" data-target="#" href="#">' +
         '<i class="icon-cogs icon-2x"></i>' +
         '</span>' +
@@ -75,8 +75,8 @@ Templates = function () {
         '<h4 class="media-heading">{{label}}</h4>' +
         '{{description}}' +
         '</div>' +
-        '</div>' +
-        '{{/Applications}}';
+        '</div></td></tr>' +
+        '{{/Applications}}</table>';
     this.loadTemplate = function (template, data, renderTo) {
         var processTpl;
         processTpl = Mustache.to_html(template, data);
