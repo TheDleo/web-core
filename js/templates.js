@@ -63,8 +63,9 @@ Templates = function () {
         '{{#apps}}' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
         '{{/apps}}' +
-        '{{/Applications.app_groups}}' +
         '<li class="divider"></li>' +
+        '{{/Applications.app_groups}}' +
+
         '{{#Applications.no_group_apps}}' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
         '{{/Applications.no_group_apps}}' +
