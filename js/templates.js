@@ -63,11 +63,11 @@ Templates = function () {
         '{{#apps}}' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
         '{{/apps}}' +
-        '<li class="divider"></li>' +
+
         '{{/Applications.app_groups}}' +
 
         '{{#Applications.no_group_apps}}' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
+        '<li class="no_group"><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">&nbsp;&nbsp;&nbsp;{{label}}</a></li>' +
         '{{/Applications.no_group_apps}}' +
         '</ul>' +
         '</li>' +
@@ -75,8 +75,8 @@ Templates = function () {
     this.userInfoTemplate = '<div class="btn-group"><a id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
         '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
         '<a id="dfSignOutLink" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>';
-    this.appIconTemplate = '{{#Applications.app_groups}}&nbsp;&nbsp;&nbsp;<h3>{{name}}</h3>' +
-        '<table id="db-tables" class="table table-bordered table-striped">' +
+    this.appIconTemplate = '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
+        '<table class="table table-bordered table-striped is_grouped">' +
         '{{#apps}}' +
         '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
         '<span class=" well warning pull-left" data-target="#" href="#">' +
@@ -88,9 +88,7 @@ Templates = function () {
         '</div>' +
         '</div></td></tr>' +
         '{{/apps}}</table>' +
-        '{{/Applications.app_groups}}' +
-        '<span class="divider"></span>'+
-        '<table id="db-tables" class="table table-bordered table-striped">' +
+        '{{/Applications.app_groups}}<table class="table table-bordered table-striped">' +
         '{{#Applications.no_group_apps}}' +
         '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
         '<span class=" well warning pull-left" data-target="#" href="#">' +
