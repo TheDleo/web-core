@@ -57,16 +57,26 @@ Templates = function () {
         ' <b class="caret"></b>' +
         '</a>' +
         '<ul class="dropdown-menu">' +
-        '{{#Applications}}' +
+
+        '{{#Applications.app_groups}}' +
+        '<li>&nbsp;&nbsp;&nbsp;{{name}}</li>' +
+        '{{#apps}}' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
-        '{{/Applications}}' +
+        '{{/apps}}' +
+        '{{/Applications.app_groups}}' +
+        '<li>&nbsp;&nbsp;&nbsp;Other Apps</li>' +
+        '{{#Applications.no_group_apps}}' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
+        '{{/Applications.no_group_apps}}' +
         '</ul>' +
         '</li>' +
         '</ul>';
     this.userInfoTemplate = '<div class="btn-group"><a id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
         '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
         '<a id="dfSignOutLink" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>';
-    this.appIconTemplate = '<table id="db-tables" class="table table-bordered table-striped">' +'{{#Applications}}' +
+    this.appIconTemplate = '{{#Applications.app_groups}}&nbsp;&nbsp;&nbsp;<h3>{{name}}</h3>' +
+        '<table id="db-tables" class="table table-bordered table-striped">' +
+        '{{#apps}}' +
         '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
         '<span class=" well warning pull-left" data-target="#" href="#">' +
         '<i class="icon-cogs icon-2x"></i>' +
@@ -76,7 +86,21 @@ Templates = function () {
         '{{description}}' +
         '</div>' +
         '</div></td></tr>' +
-        '{{/Applications}}</table>';
+        '{{/apps}}</table>' +
+        '{{/Applications.app_groups}}' +
+        '<h3>Other Apps</h3>'+
+        '<table id="db-tables" class="table table-bordered table-striped">' +
+        '{{#Applications.no_group_apps}}' +
+        '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
+        '<span class=" well warning pull-left" data-target="#" href="#">' +
+        '<i class="icon-cogs icon-2x"></i>' +
+        '</span>' +
+        '<div class="media-body">' +
+        '<h4 class="media-heading">{{label}}</h4>' +
+        '{{description}}' +
+        '</div>' +
+        '</div></td></tr>' +
+        '{{/Applications.no_group_apps}}</table>';
     this.loadTemplate = function (template, data, renderTo) {
         var processTpl;
         processTpl = Mustache.to_html(template, data);
