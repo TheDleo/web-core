@@ -64,7 +64,7 @@ Templates = function () {
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
         '{{/apps}}' +
         '{{/Applications.app_groups}}' +
-        '<li>&nbsp;&nbsp;&nbsp;Other Apps</li>' +
+        '<li class="divider"></li>' +
         '{{#Applications.no_group_apps}}' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
         '{{/Applications.no_group_apps}}' +
@@ -88,7 +88,7 @@ Templates = function () {
         '</div></td></tr>' +
         '{{/apps}}</table>' +
         '{{/Applications.app_groups}}' +
-        '<h3>Other Apps</h3>'+
+        '<span class="divider"></span>'+
         '<table id="db-tables" class="table table-bordered table-striped">' +
         '{{#Applications.no_group_apps}}' +
         '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
