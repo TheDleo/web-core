@@ -1,3 +1,106 @@
+/**
+ * DreamFactory API
+ *
+ * @author jb
+ * @version 1.0
+ *
+ */
+
+/**
+ *
+ * Common utilities for simplifing access to Dream Factory Data Sources
+ * and Services
+ *
+ */
+var CommonUtilities = {
+    /**
+     * Simplified access to the Query string on the current page's URL
+     * @param key
+     * @returns {Boolean}
+     */
+    getQueryParameter: function(key) {
+        key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&");
+        var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+        return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+    },
+    /**
+     * Takes either a flattened JSON array or an array of objects with a *.getJSON()
+     * method to dump the data into a request.
+     *
+     * @param obj
+     * @returns
+     */
+    jsonRecords: function(obj) {
+        var json = null;
+        if(obj instanceof String) {
+            return obj;
+        } else if(obj instanceof Array) {
+            var rec = [];
+            for(var i in obj) {
+                rec[rec.length] = {fields: obj[i].getJSON ? obj[i].getJSON() : obj[i]};
+            }
+            return JSON.stringify({records:{record:rec}});
+        } else {
+            json = {records:{record: [{fields:obj}]}};
+        }
+        return JSON.stringify(json);
+    },
+    /**
+     * TODO: Still working to simplify this process for deleting records
+     *
+     * @param array
+     * @returns
+     */
+    jsonDeletes: function(array) {
+        var json = null;
+        if(array instanceof Array) {
+            throw "NOT IMPLEMENTED!"; // future use is make string array from objects
+        } else if(array instanceof String) {
+            json = {Ids:array};
+        } else {
+            json = {Ids:array.toString()};
+        }
+        return JSON.stringify(json);
+    },
+    /**
+     * This method takes the response from the server and flattens it into
+     * first tier objects.
+     * @param json
+     * @returns {Array}
+     */
+    flattenResponse: function(json) {
+        var objects = [];
+        for(var i in json.record) {
+            objects[objects.length] = json.record[i].fields;
+        }
+        return objects;
+    }
+};
+
+/**
+ * Standard error detection for responses from DreamFactory
+ *
+ * @param xml
+ * @returns {String}
+ */
+function checkFailure(json) {
+    if(!json) return 'null result set';
+    if(json.fault) {
+        return json.fault.faultCode+" = "+json.fault.faultString;
+    } else if(json.record) {
+        var errors = [];
+        for(var i in json.record) {
+            if(json.record[i].fault) {
+                errors[errors.length] = json.record[i].fault.faultCode+" = "+json.record[i].fault.faultString;
+            }
+        }
+        if(errors.length > 0) return errors;
+    }
+}
+
+/**
+ * Form Actions (why the extra typing? For uniformity)
+ */
 var DFRequestType = {
     POST:'POST',
     GET:'GET'
@@ -17,7 +120,12 @@ var DFRequestActions = {
  *
  * @returns {String}
  */
-
+function getCurrentServer() {
+    var loc = window.location;
+    var tmp = loc.protocol + '//' + loc.hostname;
+    if(loc.port) tmp += ':'+loc.port;
+    return tmp;
+}
 
 /**
  * The request object to handle communication with server
@@ -93,7 +201,7 @@ function DFRequest(opts) {
     /**
      * This method is intended to be used internally. Never access this directly.
      */
-    this.prepareRequest = function(params,path,service) {
+    this.prepareRequest = function(params,path,service,success) {
         /**
          * Create a copy of our template because fast user interaction
          * and the asynchronous nature of these calls can cause race
@@ -111,7 +219,12 @@ function DFRequest(opts) {
         }
 
         if(this_request.success) { // wrap call with our own management
-            var custom_success = this_request.success; // make static reference
+            var custom_success = null;
+            if(success) {
+                custom_success = success;
+            } else {
+                custom_success = this_request.success; // make static reference
+            }
             this_request.success = function(data) {
                 if(custom_success) custom_success(data,this_request);
             };
@@ -175,6 +288,7 @@ function DFRequest(opts) {
      */
     this.retrieve = function(params,path,def) {
         if(!def) def = this.prepareRequest(params,path);
+        if(path) def.resource = path;
         def.type = DFRequestType.GET;
         def.action = DFRequestActions.RETRIEVE;
         jQuery.ajax(def);
