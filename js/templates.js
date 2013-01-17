@@ -79,13 +79,13 @@ Templates = function () {
         ' <b class="caret"></b>' +
         '</a>' +
         '<ul class="dropdown-menu">' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin/index.html\',\'0\')">Users</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//apps.html\',\'0\')">Applications</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//services.html\',\'0\')">Services</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//appgroups.html\',\'0\')">Manage Groups</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/index.html\',\'0\')">Users</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/apps.html\',\'0\')">Applications</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/services.html\',\'0\')">Services</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/appgroups.html\',\'0\')">Manage Groups</a></li>' +
         //'<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//appgroupassign.html\',\'0\')">Assign Groups</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//roles.html\',\'0\')">Manage Roles</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//roleassign.html\',\'0\')">Assign Roles</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/roles.html\',\'0\')">Manage Roles</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/roleassign.html\',\'0\')">Assign Roles</a></li>' +
         '</ul>' +
         '</li>' +
         '</ul>';
