@@ -72,6 +72,23 @@ Templates = function () {
         '</ul>' +
         '</li>' +
         '</ul>';
+    this.adminDropDownTemplate = '<ul class="nav">' +
+        '<li class="dropdown">' +
+        '<a data-target="#" href="#" class="dropdown-toggle" data-toggle="dropdown">' +
+        'Administer' +
+        ' <b class="caret"></b>' +
+        '</a>' +
+        '<ul class="dropdown-menu">' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin/index.html\',\'0\')">Users</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//apps.html\',\'0\')">Applications</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//services.html\',\'0\')">Services</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//appgroups.html\',\'0\')">Manage Groups</a></li>' +
+        //'<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//appgroupassign.html\',\'0\')">Assign Groups</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//roles.html\',\'0\')">Manage Roles</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//roleassign.html\',\'0\')">Assign Roles</a></li>' +
+        '</ul>' +
+        '</li>' +
+        '</ul>';
     this.userInfoTemplate = '<div class="btn-group"><a id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
         '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
         '<a id="dfSignOutLink" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>';
