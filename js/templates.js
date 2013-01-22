@@ -89,7 +89,7 @@ Templates = {
         '</li>' +
         '</ul>',
     userInfoTemplate : '<div class="btn-group"><a onclick="Actions.upDateSession();$(\'#changeProfileDialog\').dialog(\'open\')" id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
-        '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" onclick="$(\'#changePasswordDialog\').dialog(\'open\')" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
+        '<i class="icon-user"></i>&nbsp;{{display_name}}</a><a id="dfPasswordLnk" onclick="$(\'#changePasswordDialog\').dialog(\'open\')" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
         '<a id="dfSignOutLink" onclick="$(\'#logoffDialog\').dialog(\'open\')" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
     appIconTemplate : '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
         '<table class="table table-bordered table-striped is_grouped">' +
