@@ -5,13 +5,13 @@
  * Time: 11:37 AM
  * To change this template use File | Settings | File Templates.
  */
-Templates = function () {
-    this.thumbPanel = "<h1>{{name}}</h1><br/>{{desc}}";
-    this.alertMessage = '<div class="alert">' +
+Templates = {
+    thumbPanel : "<h1>{{name}}</h1><br/>{{desc}}",
+    alertMessage :'<div class="alert">' +
         '<a class="close" data-dismiss="alert">x</a>' +
         '{{message}}' +
-        '</div>';
-    this.gridTemplate = '<table id="db-tables" class="table table-bordered table-striped">' +
+        '</div>',
+    gridTemplate :'<table id="db-tables" class="table table-bordered table-striped">' +
         '<thead>' +
         '<tr>' +
         '<th class="table-names-header">Table Name</th>' +
@@ -24,8 +24,8 @@ Templates = function () {
         '</tr> ' +
         '{{/table}}' +
         '</tbody>' +
-        '</table>';
-    this.appTemplate = '<table id="db-tables" class="table table-bordered table-striped">' +
+        '</table>',
+    appTemplate : '<table id="db-tables" class="table table-bordered table-striped">' +
         '<thead>' +
         '<tr>' +
         '<th class="table-names-header">Applications</th>' +
@@ -38,8 +38,8 @@ Templates = function () {
         '</tr> ' +
         '{{/record}}' +
         '</tbody>' +
-        '</table>';
-    this.dropDownTemplate = '<div class="btn-group">' +
+        '</table>',
+    dropDownTemplate:'<div class="btn-group">' +
         '<a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">' +
         'Applications' +
         '<span class="caret"></span>' +
@@ -49,8 +49,8 @@ Templates = function () {
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{fields.name}}\',\'{{fields.url}}\')">{{fields.label}}</a></li>' +
         '{{/record}}' +
         '</ul>' +
-        '</div>';
-    this.navBarDropDownTemplate = '<ul class="nav">' +
+        '</div>',
+    navBarDropDownTemplate:'<ul class="nav">' +
         '<li class="dropdown">' +
         '<a data-target="#" href="#" class="dropdown-toggle" data-toggle="dropdown">' +
         'Applications' +
@@ -71,8 +71,8 @@ Templates = function () {
         '{{/Applications.no_group_apps}}' +
         '</ul>' +
         '</li>' +
-        '</ul>';
-    this.adminDropDownTemplate = '<ul class="nav">' +
+        '</ul>',
+    adminDropDownTemplate: '<ul class="nav">' +
         '<li class="dropdown">' +
         '<a data-target="#" href="#" class="dropdown-toggle" data-toggle="dropdown">' +
         'Administer' +
@@ -83,16 +83,15 @@ Templates = function () {
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/apps.html\',\'0\')">Applications</a></li>' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/services.html\',\'0\')">Services</a></li>' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/appgroups.html\',\'0\')">Manage Groups</a></li>' +
-        //'<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/app-admin//appgroupassign.html\',\'0\')">Assign Groups</a></li>' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/roles.html\',\'0\')">Manage Roles</a></li>' +
         '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/roleassign.html\',\'0\')">Assign Roles</a></li>' +
         '</ul>' +
         '</li>' +
-        '</ul>';
-    this.userInfoTemplate = '<div class="btn-group"><a id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
-        '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
-        '<a id="dfSignOutLink" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>';
-    this.appIconTemplate = '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
+        '</ul>',
+    userInfoTemplate : '<div class="btn-group"><a onclick="Actions.upDateSession();$(\'#changeProfileDialog\').dialog(\'open\')" id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
+        '<i class="icon-user"></i>&nbsp;{{full_name}}</a><a id="dfPasswordLnk" onclick="$(\'#changePasswordDialog\').dialog(\'open\')" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
+        '<a id="dfSignOutLink" onclick="$(\'#logoffDialog\').dialog(\'open\')" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
+    appIconTemplate : '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
         '<table class="table table-bordered table-striped is_grouped">' +
         '{{#apps}}' +
         '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
@@ -116,8 +115,28 @@ Templates = function () {
         '{{description}}' +
         '</div>' +
         '</div></td></tr>' +
-        '{{/Applications.no_group_apps}}</table>';
-    this.loadTemplate = function (template, data, renderTo) {
+        '{{/Applications.no_group_apps}}</table>',
+    navBarTemplate : '<div class="navbar">' +
+        '<div class="navbar-inner">' +
+        ' <div class="container">' +
+        ' <div class="pull-left df-logo"><img src="img/logo.png"></div>' +
+        ' <div class="pull-right" id="dfControl1">' +
+        ' Please [<a id="dfSignInLink" class="dfPointer dfTxtHeader3">Log In</a>] To Continue!' +
+        '</div>' +
+        ' <div id="app-list"></div>' +
+        ' <div id="admin-container"></div>' +
+        ' <!-- Everything you want hidden at 940px or less, place within here -->' +
+        '<div class="nav-collapse collapse">' +
+        '<!-- .nav, .navbar-search, .navbar-form, etc -->' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>',
+    errorTemplate : '{{#error}}<div class="alert">' +
+        '<button type="button" class="close" data-dismiss="alert">x</button>' +
+        '<strong>{{message}}</strong>' +
+        '</div>{{/error}}',
+    loadTemplate : function (template, data, renderTo) {
         var processTpl;
         processTpl = Mustache.to_html(template, data);
         $('#' + renderTo).html(processTpl);
