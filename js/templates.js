@@ -121,7 +121,7 @@ Templates = {
         ' <div class="container">' +
         ' <div class="pull-left df-logo"><img src="img/logo.png"></div>' +
         ' <div class="pull-right" id="dfControl1">' +
-        ' Please [<a id="dfSignInLink" class="dfPointer dfTxtHeader3">Log In</a>] To Continue!' +
+        ' <a class="btn btn-primary" onclick="$(\'#loginDialog\').modal(\'show\')"><li class="icon-signin"></li>&nbsp;Sign In</a>' +
         '</div>' +
         ' <div id="app-list"></div>' +
         ' <div id="admin-container"></div>' +
