@@ -88,9 +88,9 @@ Templates = {
         '</ul>' +
         '</li>' +
         '</ul>',
-    userInfoTemplate : '<div class="btn-group"><a onclick="Actions.upDateSession();$(\'#changeProfileDialog\').modal()" id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
-        '<i class="icon-user"></i>&nbsp;{{display_name}}</a><a id="dfPasswordLnk" onclick="$(\'#changePasswordDialog\').modal()" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
-        '<a id="dfSignOutLink" onclick="$(\'#logoffDialog\').modal()" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
+    userInfoTemplate : '<div class="btn-group"><a onclick="Actions.maybeDoProfileDialog()" id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
+        '<i class="icon-user"></i>&nbsp;{{display_name}}</a><a id="dfPasswordLnk" onclick="Actions.maybeDoChangePasswordDialog()" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
+        '<a id="dfSignOutLink" onclick="Actions.doSignOutDialog()" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
     appIconTemplate : '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
         '<table class="table table-bordered table-striped is_grouped">' +
         '{{#apps}}' +
@@ -121,7 +121,7 @@ Templates = {
         ' <div class="container">' +
         ' <div class="pull-left df-logo"><img src="img/logo.png"></div>' +
         ' <div class="pull-right" id="dfControl1">' +
-        ' <a class="btn btn-primary" onclick="$(\'#loginDialog\').modal(\'show\')"><li class="icon-signin"></li>&nbsp;Sign In</a>' +
+        ' <a class="btn btn-primary" onclick="Actions.doSignInDialog()"><li class="icon-signin"></li>&nbsp;Sign In</a>' +
         '</div>' +
         ' <div id="app-list"></div>' +
         ' <div id="admin-container"></div>' +
