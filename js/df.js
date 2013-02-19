@@ -37,11 +37,11 @@ var CommonUtilities = {
         } else if(obj instanceof Array) {
             var rec = [];
             for(var i in obj) {
-                rec[rec.length] = {fields: obj[i].getJSON ? obj[i].getJSON() : obj[i]};
+                rec[rec.length] = obj[i].getJSON ? obj[i].getJSON() : obj[i];
             }
             return JSON.stringify({records:{record:rec}});
         } else {
-            json = {records:{record: [{fields:obj}]}};
+            json = {records:{record: [obj]}};
         }
         return JSON.stringify(json);
     },
@@ -71,7 +71,7 @@ var CommonUtilities = {
     flattenResponse: function(json) {
         var objects = [];
         for(var i in json.record) {
-            objects[objects.length] = json.record[i].fields;
+            objects[objects.length] = json.record[i];
         }
         return objects;
     }

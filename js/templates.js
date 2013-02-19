@@ -34,7 +34,7 @@ Templates = {
         '<tbody>' +
         '{{#record}}' +
         '<tr>' +
-        '<td>{{fields.label}}</td>' +
+        '<td>{{label}}</td>' +
         '</tr> ' +
         '{{/record}}' +
         '</tbody>' +
@@ -46,7 +46,7 @@ Templates = {
         '</a>' +
         '<ul class="dropdown-menu">' +
         '{{#record}}' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{fields.name}}\',\'{{fields.url}}\')">{{fields.label}}</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\')">{{label}}</a></li>' +
         '{{/record}}' +
         '</ul>' +
         '</div>',
