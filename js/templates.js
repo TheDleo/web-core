@@ -34,7 +34,7 @@ Templates = {
         '<tbody>' +
         '{{#record}}' +
         '<tr>' +
-        '<td>{{label}}</td>' +
+        '<td>{{fields.label}}</td>' +
         '</tr> ' +
         '{{/record}}' +
         '</tbody>' +
@@ -46,7 +46,7 @@ Templates = {
         '</a>' +
         '<ul class="dropdown-menu">' +
         '{{#record}}' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\')">{{label}}</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{fields.name}}\',\'{{fields.url}}\')">{{fields.label}}</a></li>' +
         '{{/record}}' +
         '</ul>' +
         '</div>',
@@ -61,65 +61,48 @@ Templates = {
         '{{#Applications.app_groups}}' +
         '<li>&nbsp;&nbsp;&nbsp;{{name}}</li>' +
         '{{#apps}}' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{label}}</a></li>' +
+        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'{{api_name}}\',\'{{url}}\',\'{{is_url_external}}\')">{{name}}</a></li>' +
         '{{/apps}}' +
 
         '{{/Applications.app_groups}}' +
 
         '{{#Applications.no_group_apps}}' +
-        '<li class="no_group"><a data-target="#" href="#" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">&nbsp;&nbsp;&nbsp;{{label}}</a></li>' +
+        '<li class="no_group"><a data-target="#" href="#" onclick = "Actions.showApp(\'{{api_name}}\',\'{{url}}\',\'{{is_url_external}}\')">&nbsp;&nbsp;&nbsp;{{name}}</a></li>' +
         '{{/Applications.no_group_apps}}' +
         '</ul>' +
         '</li>' +
         '</ul>',
-    adminDropDownTemplate: '<ul class="nav">' +
-        '<li class="dropdown">' +
-        '<a data-target="#" href="#" class="dropdown-toggle" data-toggle="dropdown">' +
-        'Administer' +
-        ' <b class="caret"></b>' +
-        '</a>' +
-        '<ul class="dropdown-menu">' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/index.html\',\'0\')">Users</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/apps.html\',\'0\')">Applications</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/services.html\',\'0\')">Services</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/appgroups.html\',\'0\')">Manage Groups</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/roles.html\',\'0\')">Manage Roles</a></li>' +
-        '<li><a data-target="#" href="#" onclick = "Actions.showApp(\'admin\',\'/public/admin/roleassign.html\',\'0\')">Assign Roles</a></li>' +
-        '</ul>' +
-        '</li>' +
-        '</ul>',
-    userInfoTemplate : '<div class="btn-group"><a onclick="Actions.maybeDoProfileDialog()" id="dfProfileLnk" class="btn btn-primary" title="Change Your Profile">' +
-        '<i class="icon-user"></i>&nbsp;{{display_name}}</a><a id="dfPasswordLnk" onclick="Actions.maybeDoChangePasswordDialog()" class="btn btn-info" title="Change Your Password"><i class="icon-key"></i></a>' +
-        '<a id="dfSignOutLink" onclick="Actions.doSignOutDialog()" class="btn btn-info" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
+    userInfoTemplate : '<div class="btn-group"><a onclick="Actions.maybeDoProfileDialog()" id="dfProfileLnk" class="btn btn-inverse" title="Change Your Profile">' +
+        '<i class="icon-user"></i>&nbsp;{{display_name}}</a><a id="dfPasswordLnk" onclick="Actions.maybeDoChangePasswordDialog()" class="btn btn-inverse" title="Change Your Password"><i class="icon-key"></i></a>' +
+        '<a id="dfSignOutLink" onclick="Actions.doSignOutDialog()" class="btn btn-inverse" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
     appIconTemplate : '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
-        '<table class="table table-bordered table-striped is_grouped">' +
+        '<table class="table is_grouped">' +
         '{{#apps}}' +
-        '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
-        '<span class=" well warning pull-left" data-target="#" href="#">' +
-        '<i class="icon-cogs icon-2x"></i>' +
+        '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{api_name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
+        '<span class=" well well-small pull-left" data-target="#" href="#">' +
+        '<i class="icon-cloud icon-2x"></i>' +
         '</span>' +
         '<div class="media-body">' +
-        '<h4 class="media-heading">{{label}}</h4>' +
+        '<h4 class="media-heading">{{name}}</h4>' +
         '{{description}}' +
         '</div>' +
         '</div></td></tr>' +
         '{{/apps}}</table>' +
-        '{{/Applications.app_groups}}<table class="table table-bordered table-striped">' +
+        '{{/Applications.app_groups}}<table class="table">' +
         '{{#Applications.no_group_apps}}' +
-        '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
-        '<span class=" well warning pull-left" data-target="#" href="#">' +
-        '<i class="icon-cogs icon-2x"></i>' +
+        '<tr><td><div class="media" style="margin:0px;" onclick = "Actions.showApp(\'{{api_name}}\',\'{{url}}\',\'{{is_url_external}}\')">' +
+        '<span class=" well well-small warning pull-left" data-target="#" href="#">' +
+        '<i class="icon-cloud icon-2x"></i>' +
         '</span>' +
         '<div class="media-body">' +
-        '<h4 class="media-heading">{{label}}</h4>' +
+        '<h4 class="media-heading">{{name}}</h4>' +
         '{{description}}' +
         '</div>' +
         '</div></td></tr>' +
         '{{/Applications.no_group_apps}}</table>',
-    navBarTemplate : '<div class="navbar">' +
-        '<div class="navbar-inner">' +
+    navBarTemplate : '<div class="navbar navbar-inverse">' +
         ' <div class="container">' +
-        ' <div class="pull-left df-logo"><img src="img/logo.png"></div>' +
+        ' <div class="pull-left df-logo"><a href="/"><img src="img/logo.png"></a></div>' +
         ' <div class="pull-right" id="dfControl1">' +
         ' <a class="btn btn-primary" onclick="Actions.doSignInDialog()"><li class="icon-signin"></li>&nbsp;Sign In</a>' +
         '</div>' +
@@ -128,7 +111,6 @@ Templates = {
         ' <!-- Everything you want hidden at 940px or less, place within here -->' +
         '<div class="nav-collapse collapse">' +
         '<!-- .nav, .navbar-search, .navbar-form, etc -->' +
-        '</div>' +
         '</div>' +
         '</div>' +
         '</div>',
