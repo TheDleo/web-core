@@ -84,3 +84,16 @@ checkForDuplicates = function(arr, attr1, value1, attr2, value2){
     }
     return found;
 };
+checkForDuplicate = function(arr, attr1, value1){
+    var i = arr.length;
+    var found=false;
+    while(i--){
+        if(arr[i] && arr[i][attr1] && (arguments.length > 2 && arr[i][attr1] === value1 )){
+
+            found=true;
+
+
+        }
+    }
+    return found;
+};
