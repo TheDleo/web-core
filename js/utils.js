@@ -71,6 +71,19 @@ removeByAttrs = function(arr, attr1, value1, attr2, value2){
     }
     return arr;
 };
+updateByAttr = function(arr, attr1, value1, newRecord){
+    var i = arr.length;
+    while(i--){
+        if(arr[i] && arr[i][attr1] && (arguments.length > 2 && arr[i][attr1] === value1 )){
+
+            //arr.splice(i,1);
+            arr[i] = newRecord;
+
+
+        }
+    }
+    return arr;
+};
 checkForDuplicates = function(arr, attr1, value1, attr2, value2){
     var i = arr.length;
     var found=false;
