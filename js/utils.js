@@ -125,3 +125,4 @@ checkForDuplicate = function(arr, attr1, value1){
     }
     return found;
 };
+CurrentServer = location.protocol + '//' + location.host ;
