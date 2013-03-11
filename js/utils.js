@@ -51,6 +51,9 @@ function xml2text(value) {
     return value.replace(/&quot;/g, '"').replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&').replace(/&apos;/g, '\''); ;
 }
 removeByAttr = function (arr, attr, value) {
+    if(!arr){
+        return false;
+    }
     var i = arr.length;
     while (i--) {
         if (arr[i] && arr[i][attr] && (arguments.length > 2 && arr[i][attr] === value )) {
@@ -60,6 +63,9 @@ removeByAttr = function (arr, attr, value) {
     return arr;
 };
 removeByAttrs = function(arr, attr1, value1, attr2, value2){
+    if(!arr){
+        return false;
+    }
     var i = arr.length;
     while(i--){
         if(arr[i] && arr[i][attr1] && (arguments.length > 2 && arr[i][attr1] === value1 )){
@@ -72,6 +78,9 @@ removeByAttrs = function(arr, attr1, value1, attr2, value2){
     return arr;
 };
 updateByAttr = function(arr, attr1, value1, newRecord){
+    if(!arr){
+        return false;
+    }
     var i = arr.length;
     while(i--){
         if(arr[i] && arr[i][attr1] && (arguments.length > 2 && arr[i][attr1] === value1 )){
@@ -85,6 +94,9 @@ updateByAttr = function(arr, attr1, value1, newRecord){
     return arr;
 };
 checkForDuplicates = function(arr, attr1, value1, attr2, value2){
+    if(!arr){
+        return false;
+    }
     var i = arr.length;
     var found=false;
     while(i--){
@@ -98,6 +110,9 @@ checkForDuplicates = function(arr, attr1, value1, attr2, value2){
     return found;
 };
 checkForDuplicate = function(arr, attr1, value1){
+    if(!arr){
+        return false;
+    }
     var i = arr.length;
     var found=false;
     while(i--){
