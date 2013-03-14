@@ -5,7 +5,7 @@
  * Time: 11:37 AM
  * To change this template use File | Settings | File Templates.
  */
-Templates = {
+var Templates = {
     thumbPanel : "<h1>{{name}}</h1><br/>{{desc}}",
     alertMessage :'<div class="alert">' +
         '<a class="close" data-dismiss="alert">x</a>' +
@@ -103,10 +103,12 @@ Templates = {
     navBarTemplate : '<div class="navbar navbar-inverse">' +
         ' <div class="container">' +
         ' <div class="pull-left df-logo"><a href="/"><img src="img/logo.png"></a></div>' +
+
         ' <div class="pull-right" id="dfControl1">' +
         ' <a class="btn btn-primary" onclick="Actions.doSignInDialog()"><li class="icon-signin"></li>&nbsp;Sign In</a>' +
         '</div>' +
         ' <div id="app-list"></div>' +
+        '<div id="error-container" class="alert alert-error center"></div>' +
         ' <div id="admin-container"></div>' +
         ' <!-- Everything you want hidden at 940px or less, place within here -->' +
         '<div class="nav-collapse collapse">' +
