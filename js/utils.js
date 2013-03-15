@@ -3,6 +3,23 @@ function alertErr(response) {
     alert(getErrorString(response));
 }
 
+function isErrorString(responseText) {
+
+    var result = null;
+
+    if (responseText && responseText != '') {
+        try {
+            result = JSON.parse(responseText);
+        } catch(e) {
+
+        }
+    }
+    if (result && result.error) {
+        return true;
+    }
+    return false;
+}
+
 function getErrorString(response) {
 
     var code = null;
