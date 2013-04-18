@@ -63,7 +63,7 @@ var Templates = {
         '</ul>',
     userInfoTemplate : '<div class="btn-group"><a onclick="Actions.doProfileDialog()" id="dfProfileLnk" class="btn btn-inverse" title="Change Your Profile">' +
         '<i class="icon-user"></i>&nbsp;{{display_name}}</a><a id="dfPasswordLnk" onclick="Actions.doChangePasswordDialog()" class="btn btn-inverse" title="Change Your Password"><i class="icon-key"></i></a>' +
-        '<a id="fs_toggle" onclick="Actions.toggleFullScreen(true)" class="btn btn-inverse"><i class="icon-resize-full"></i></a><a id="dfSignOutLink" onclick="Actions.doSignOutDialog()" class="btn btn-inverse" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
+        '<a id="fs_toggle" onclick="Actions.toggleFullScreen(true)" class="btn btn-inverse" title="Full Screen" ><i class="icon-resize-full"></i></a><a id="dfSignOutLink" onclick="Actions.doSignOutDialog()" class="btn btn-inverse" title="End Your Session Now"><i class="icon-signout"></i></a></div>',
     appIconTemplate : '{{#Applications.app_groups}}<h3>{{name}}</h3>' +
         '<table class="table is_grouped">' +
         '{{#apps}}' +
