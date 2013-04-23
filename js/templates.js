@@ -95,6 +95,7 @@ var Templates = {
 
         ' <div class="pull-right" id="dfControl1">' +
         ' <a class="btn btn-primary" onclick="Actions.doSignInDialog()"><li class="icon-signin"></li>&nbsp;Sign In</a>' +
+        ' {{#allow_open_registration}}<a class="btn btn-primary" onclick="Actions.createAccount()"><li class="icon-key"></li>&nbsp;Create Account</a>{{/allow_open_registration}}' +
         '</div>' +
         ' <div id="app-list"></div>' +
         '<div id="error-container" class="alert alert-error center"></div>' +
