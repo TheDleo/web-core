@@ -25,8 +25,8 @@
 			"role":  "Black Ops"
 		}
 	],
-	"homepage":          "http://dreamfactorybeta.com/",
-	"license":           ["GPL-3.0", "proprietary"],
+	"homepage":          "http://dreamfactory.com/df_developers",
+	"license":           ["Apache2.0"],
 	"support":           {
 		"email":  "developer-support@dreamfactory.com",
 		"issues": "https://bitbucket.org/dreamfactory/web-core/issues",
