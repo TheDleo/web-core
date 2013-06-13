@@ -1,9 +1,9 @@
 {
 	"name":              "dreamfactory/web-core",
+	"version":           "1.0.4",
 	"description":       "DreamFactory Services Platform(tm) Web Support Library",
 	"keywords":          ["dreamfactory", "dsp", "cloud", "dsp-lib", "dsp-core"],
 	"type":              "dreamfactory-platform",
-    "version":"1.0.4",
 	"authors":           [
 		{
 			"name":  "Sykes, Jason",
@@ -27,9 +27,9 @@
 		}
 	],
 	"homepage":          "http://dreamfactory.com/df_developers",
-	"license":           ["Apache2.0"],
+	"license":           ["Apache-2.0"],
 	"support":           {
-		"email":  "developer-support@dreamfactory.com",
+		"email":  "support@dreamfactory.com",
 		"issues": "https://bitbucket.org/dreamfactory/web-core/issues",
 		"forum":  "https://bitbucket.org/dreamfactory/web-core/forum",
 		"wiki":   "https://bitbucket.org/dreamfactory/web-core/wiki",
