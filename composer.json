@@ -3,6 +3,7 @@
 	"description":       "DreamFactory Services Platform(tm) Web Support Library",
 	"keywords":          ["dreamfactory", "dsp", "cloud", "dsp-lib", "dsp-core"],
 	"type":              "dreamfactory-platform",
+    "version":"1.0.4",
 	"authors":           [
 		{
 			"name":  "Sykes, Jason",
