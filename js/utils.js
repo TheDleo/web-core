@@ -41,7 +41,7 @@ function getErrorString(response) {
         } else {
             result = response.data;
         }
-        if (result) {
+        if (result && result.error) {
             value = xml2text(result.error[0].message);
             if (value && value != '') {
                 return value;
