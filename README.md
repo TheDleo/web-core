@@ -1,6 +1,5 @@
-web-core
-========
+# web-core
 
-DreamFactory Services Platform(tm) Web Support Library
+### DreamFactory Services Platform&trade; Web Support Library
 
-RC1
+Please see our [site](http://dreamfactorysoftware.github.io) for full documentation.
