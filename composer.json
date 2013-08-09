@@ -1,6 +1,6 @@
 {
 	"name":              "dreamfactory/web-core",
-	"version":           "1.0.5",
+	"version":           "1.0.6",
 	"homepage":          "http://dreamfactorysoftware.github.io",
 	"description":       "DreamFactory Services Platform(tm) Web Support Library",
 	"keywords":          ["dreamfactory", "dsp", "cloud", "dsp-lib", "dsp-core"],
@@ -30,10 +30,8 @@
 	"license":           ["Apache-2.0"],
 	"support":           {
 		"email":  "support@dreamfactory.com",
-		"issues": "https://bitbucket.org/dreamfactory/web-core/issues",
-		"forum":  "https://bitbucket.org/dreamfactory/web-core/forum",
-		"wiki":   "https://bitbucket.org/dreamfactory/web-core/wiki",
-		"source": "https://bitbucket.org/dreamfactory/web-core/src"
+		"wiki": "https://github.com/dreamfactorysoftware/web-core/wiki",
+		"issues": "https://github.com/dreamfactorysoftware/web-core/issues"
 	},
 	"minimum-stability": "dev",
 	"require":           {
